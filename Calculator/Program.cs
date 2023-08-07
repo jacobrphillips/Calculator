@@ -6,13 +6,48 @@ double num2 = 0;
 Console.WriteLine("Console Calculator in C#\r");
 Console.WriteLine("------------------------\n");
 
-// Ask the user to type the first number.
-Console.WriteLine("Type a number, and then press Enter");
-num1 = Convert.ToDouble(Console.ReadLine());
+// Boolean value to use as the while loop's conditional.
+bool run = true;
+while (run)
+{
+    // Ask the user to type the first number.
+    Console.WriteLine("Type a number, and then press Enter");
+
+    // Record user input from Console into string variable.
+    string input1 = Console.ReadLine();
+
+    // If the user's input can be converted from string to double, then the boolean value for the while loop's conditional is set to false, ending the loop. 
+    // Else, it notifies the user to please enter a numerical value.
+    if (double.TryParse(input1, out num1))
+    {
+        run = false; 
+        break;
+    } else
+    {
+        Console.WriteLine("Please enter a numerical value.");
+    }
+}
+
 
 // Ask the user to type the second number.
-Console.WriteLine("Type another number, and then press Enter");
-num2 = Convert.ToDouble(Console.ReadLine());
+bool run2 = true;
+while (run2)
+{
+    Console.WriteLine("Type another number, and then press Enter");
+
+    string input2 = Console.ReadLine();
+
+    if (double.TryParse(input2, out num2))
+    {
+        run2 = false;
+        break;
+    }
+    else
+    {
+        Console.WriteLine("Please enter a numerical value.");
+    }
+}
+
 
 // Ask the user to choose an option.
 Console.WriteLine("Choose an option from the following list:");
