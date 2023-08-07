@@ -3,6 +3,7 @@
     static void Main(string[] args)
     {
         bool endApp = false;
+        int numberOfTimesUsed = 0;
 
         // Display title as the C# console calculator app.
         Console.WriteLine("Console Calculator in C#\r");
@@ -20,6 +21,8 @@
             bool run = true;
             while (run)
             {
+                
+
                 // Ask the user to type the first number.
                 Console.WriteLine("Type a number, and then press Enter");
 
@@ -68,6 +71,7 @@
             Console.Write("Your option? ");
 
             string operation = Console.ReadLine();
+            numberOfTimesUsed++;
 
             try
             {
@@ -85,6 +89,7 @@
             {
                 Console.WriteLine("Oh no! An exception error occured trying to do the math.\n - Details " + e.Message);
             }
+            Console.WriteLine($"The calculator has been used {numberOfTimesUsed} number of times");
             Console.WriteLine("------------------------------\n");
 
             // Wait for the user to respond before closing 
@@ -120,7 +125,6 @@ class Calculator
                 Console.WriteLine($"Your equation: {num1} * {num2}");
                 break;
             case "d":
-                // Ask the user to enter a non-zero divisor until they do so.
                 if (num2 != 0)
                 {
                     result = num1 / num2;
